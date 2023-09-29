@@ -2,7 +2,7 @@
 
 Welcome to the GitHub repository for the KU Hackfest 2023 Federated Learning project. In this repository, we explore the fascinating world of Federated Learning by applying it to cardio-related CSV data. This project is designed to showcase the power of machine learning in a collaborative, decentralized manner.
 
-![Federated Learning](https://github.com/Rajaramkarki/TeamBerojgar-Hackfest/assets/67723187/3923c6c9-c5b5-4291-aff9-b79d9fa9e12a)
+![Federated Learning](https://github.com/Rajaramkarki/TeamBerojgar-Hackfest/assets/67723187/d9e6d6d9-5ec0-4c82-9e1e-820ee380a9ef)
 
 ## Table of Contents
 
