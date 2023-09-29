@@ -2,7 +2,7 @@
 
 Welcome to the GitHub repository for the KU Hackfest 2023 Federated Learning project. In this repository, we explore the fascinating world of Federated Learning by applying it to cardio-related CSV data. This project is designed to showcase the power of machine learning in a collaborative, decentralized manner.
 
-![Federated Learning](https://www.example.com/federated-learning.png)
+![Federated Learning](https://en.wikipedia.org/wiki/Federated_learning#/media/File:Centralized_federated_learning_protocol.png)
 
 ## Table of Contents
 
