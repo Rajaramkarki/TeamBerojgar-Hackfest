@@ -13,7 +13,7 @@ model = tf.keras.Sequential([
 model.compile(optimizer='adam', loss='mean_squared_error', metrics=['accuracy'])
 
 # Loading dataset
-df = pd.read_csv("./client2.csv")
+df = pd.read_csv("./client3.csv")
 y_train = df['cardio']
 x_train = df.drop(columns=['cardio','id'], axis=1)
 
