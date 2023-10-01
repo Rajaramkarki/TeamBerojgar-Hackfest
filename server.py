@@ -27,8 +27,8 @@ strategy = SaveModelStrategy()
 # Starting Flower server for 10 rounds of federated learning
 fl.server.start_server(
     #use when using hotspot
-    # server_address = '192.168.11.66:'+str(sys.argv[1]) ,  
-    server_address = 'localhost:'+str(sys.argv[1]) , 
+    server_address = '192.168.11.66:'+str(sys.argv[1]) ,  
+    # server_address = 'localhost:'+str(sys.argv[1]) , 
     config=fl.server.ServerConfig(num_rounds=10) ,
     grpc_max_message_length = 1024*1024*1024,
     strategy = strategy

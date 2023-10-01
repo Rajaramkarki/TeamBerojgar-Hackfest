@@ -6,11 +6,21 @@ import streamlit as st
 
 tf.random.set_seed(1)
 
-# Defining the model
-model = tf.keras.Sequential([
-    tf.keras.layers.Dense(1, input_shape=(11,))
+# Learning rate
+learning_rate = 0.02
+
+model = tf.keras.models.Sequential([
+    tf.keras.layers.Dense(8, activation='relu', input_shape=(11,)),
+    tf.keras.layers.Dropout(0.6),  # Dropout layer
+    tf.keras.layers.Dense(1, activation='sigmoid')
 ])
-model.compile(optimizer='adam', loss='mean_squared_error', metrics=['accuracy'])
+
+# Use learning rate in Adam optimizer
+adam_optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
+
+model.compile(optimizer=adam_optimizer,
+              loss='binary_crossentropy',
+              metrics=['accuracy'])
 
 # Loading dataset
 df = pd.read_csv("./client3.csv")
@@ -40,11 +50,11 @@ class FlowerClient(fl.client.NumPyClient):
         st.markdown("<h3><b>Client-Side Training History:</b></h3>", unsafe_allow_html=True)
 
         for key, values in filtered_hist.items():
-            st.write(f"{key}: {values}")
+            # st.write(f"{key}: {values}")
 
             if key == "accuracy":
                 st.write("Plotting Accuracy Values:")
-                chart = st.line_chart(values)
+                st.line_chart(values)
 
         return model.get_weights(), len(x_train), {}
 
@@ -58,8 +68,8 @@ class FlowerClient(fl.client.NumPyClient):
 # Starting Flower client
 st.write("Connecting to the server...")
 fl.client.start_numpy_client(
-    # server_address="192.168.11.66:"+str(sys.argv[1]), 
-    server_address="localhost:"+str(sys.argv[1]), 
+    server_address="192.168.11.66:"+str(sys.argv[1]), 
+    # server_address="localhost:"+str(sys.argv[1]), 
     client=FlowerClient(), 
     grpc_max_message_length=1024*1024*1024
 )
